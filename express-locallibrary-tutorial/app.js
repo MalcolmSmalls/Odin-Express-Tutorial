@@ -1,5 +1,14 @@
 var createError = require('http-errors');
 var express = require('express');
+
+const mongoose = require("mongoose");
+
+const mongoDB = "mongodb+srv://BigADMIN:afI4DWpG5h66iT34@cluster0.ykzlf02.mongodb.net/?retryWrites=true&w=majority";
+mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "MongoDB connection error:"))
+
+
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
