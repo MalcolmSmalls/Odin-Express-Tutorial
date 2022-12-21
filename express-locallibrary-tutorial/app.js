@@ -1,6 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
-
+const hbs = require('hbs')
 const mongoose = require("mongoose");
 
 const mongoDB = "mongodb+srv://BigADMIN:afI4DWpG5h66iT34@cluster0.ykzlf02.mongodb.net/?retryWrites=true&w=majority";
@@ -49,4 +49,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+hbs.registerPartials(path.join(__dirname, '/views/partials'))
 module.exports = app;
